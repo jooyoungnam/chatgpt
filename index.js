@@ -1,4 +1,4 @@
-const apiKey = "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";
+const apiKey = "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";
 const OpenAI = require('openai');
 const express = require('express');
 var cors = require('cors');
