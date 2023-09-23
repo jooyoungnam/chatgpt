@@ -1,4 +1,4 @@
-const apiKey = "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";
+const apiKey = "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";
 const OpenAI = require('openai');
 const express = require('express');
 var cors = require('cors');
@@ -22,7 +22,7 @@ app.post('/fortuneTell', async function (req, res) {
 
     // GPT-3에 전달할 메시지 배열을 구성합니다.
     const messages = [
-        { role: "system", content: "당신은 챗도지라는 이름의 점성술사입니다. 모든 질문에 정확하게 답할 수 있습니다." },
+        { role: "system", content: "당신은 세계 최고의 명문대 출신이고 아이큐가 200인 천재입니다. 모든 질문에 정확하게 답할 수 있습니다." },
         { role: "user", content: userQuestion }
     ];
 
