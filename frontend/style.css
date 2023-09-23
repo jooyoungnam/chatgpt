@@ -1,66 +1,115 @@
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f5f5f5;
+/* 기본 스타일 */
+/* 스마트폰 화면 크기에서부터 시작 */
+.chat-container {
+    width: 90%;
+    /* 다른 기본 스타일을 여기에 추가하세요 */
 }
 
-.chat-container {
-    width: 400px;
-    height: 500px;
-    border: 1px solid #ddd;
-    background-color: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+/* 큰 화면에 대한 스타일 추가 */
+@media (min-width: 768px) {
+    .chat-container {
+        width: 80%; /* 더 넓은 화면에 대한 스타일 조정 */
+    }
+    /* 다른 큰 화면 스타일을 여기에 추가하세요 */
+}
+
+/* 모바일 화면에 대한 스타일 추가 */
+@media (max-width: 767px) {
+    #chat-box {
+        margin-right: 10px; /* 모바일 화면에서 좌측 여백 10px 추가 */
+        margin-left: 10px; /* 모바일 화면에서 우측 여백 10px 추가 */
+    }
+
+    #user-input {
+        margin-right: 10px; /* 모바일 화면에서 좌측 여백 10px 추가 */
+        margin-left: 10px; /* 모바일 화면에서 우측 여백 10px 추가 */
+    }
+
+    button {
+        margin-right: 10px; /* 모바일 화면에서 좌측 여백 10px 추가 */
+        margin-left: 10px; /* 모바일 화면에서 우측 여백 10px 추가 */
+    }
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E1E1E;
+    margin: 0;
+    padding: 0;
+    color: #FFFFFF;
 }
 
 #chat-box {
-    flex: 1;
+    margin: 0 20px; /* 좌우 여백 추가 */
     overflow-y: auto;
-    border: 1px solid #eee;
     padding: 10px;
+    border: none;
+    max-height: 400px;
+    overflow-y: scroll;
+    margin-top: 20px;
 }
 
 #user-input {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
+    padding: 10px 15px;
+    border: 1px solid #3A3A3A;
+    background-color: #2C2C2C;
+    border-radius: 8px;
+    margin-top: 10px;
+    color: #FFFFFF;
 }
 
 #chat-box div {
-    padding: 8px 12px;
-    margin: 5px;
-    border-radius: 15px;
-    max-width: 80%; /* 메시지가 너무 길 경우를 대비해서 최대 너비 설정 */
-    word-wrap: break-word; /* 단어가 너무 길 경우 줄바꿈 처리 */
+    padding: 12px 16px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    max-width: 80%;
+    word-wrap: break-word;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #FFFFFF; /* 모든 메시지 텍스트를 흰색으로 설정 */
 }
 
 #chat-box div:nth-child(odd) {
-    background-color: #f0f0f0; /* 사용자 메시지의 배경색 */
-    align-self: flex-end;
-    border-bottom-right-radius: 5px;
+    background-color: #000000;  /* 주비스 메시지의 배경색 (검은색으로 고정) */
+    align-self: flex-start;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #3A3A3A;  /* 주비스 메시지에 테두리 추가 */
+    border-bottom-left-radius: 0;  /* 왼쪽 아래 모서리 테두리 모양 제거 */
 }
 
 #chat-box div:nth-child(even) {
-    background-color: #AEE6E6; /* 챗도지 메시지의 배경색 */
-    align-self: flex-start;
-    border-bottom-left-radius: 5px;
+    background-color: #2C2C2C;  /* 사용자 메시지의 배경색 */
+    align-self: flex-end;
+    border-bottom-left-radius: 10px;
+    border: 1px solid #3A3A3A;
+    border-bottom-right-radius: 0;  /* 오른쪽 아래 모서리 테두리 모양 제거 */
+}
+
+/* 주비스 이름을 빨간색으로 설정 */
+#chat-box div.jubis-message:nth-child(odd) .jubis-label {
+    color: #E57373;
 }
 
 button {
+    margin-top: 10px; /* 요청 버튼 위에 여백 추가 */
     padding: 10px 15px;
     border: none;
-    border-radius: 5px;
-    background-color: #AEE6E6;
+    border-radius: 8px;
+    background-color: #4A90E2;
     cursor: pointer;
-    transition: background-color 0.3s;
+    color: white;
+    font-weight: 600;
 }
 
 button:hover {
-    background-color: #8CDAD5;
+    background-color: #357ABD;
+}
+
+.jubis-label {
+    color: #E57373;  /* 주비스 이름 텍스트를 빨간색으로 설정 */
+}
+
+* {
+    box-sizing: border-box;
 }
