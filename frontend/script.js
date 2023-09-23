@@ -35,6 +35,11 @@ async function typeMessage(message, element) {
 const userInput = document.getElementById('user-input');
 userInput.setAttribute('lang', 'ko');
 
+function shouldAutoScroll(chatBox) {
+    // 스크롤바가 아래에 위치하고 있는지 확인
+    return chatBox.scrollTop + chatBox.clientHeight >= chatBox.scrollHeight - 50; // 50은 작은 여유값
+}
+
 async function getFortune() {
     const userInputValue = document.getElementById('user-input').value;
     const chatBox = document.getElementById('chat-box');
@@ -46,11 +51,17 @@ async function getFortune() {
     'http://localhost:3000/fortuneTell';
 
 
+    const autoScroll = shouldAutoScroll(chatBox);
+
     if (!userInputValue.trim()) {
         alert('메시지를 입력해주세요.');
         return;
     }
 
+    if (autoScroll) {
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+    
     // 사용자의 질문을 추가하고 입력란과 버튼을 비활성화합니다.
     chatBox.innerHTML += `<div class="user-message">${userInputValue}</div>`;
     document.getElementById('user-input').value = '';
