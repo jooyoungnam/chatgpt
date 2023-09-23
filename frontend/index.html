@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>운세보는 챗도지</title>
+</head>
+
+<body>
+    <div class="chat-container">
+        <div id="chat-box"></div>
+        <input id="user-input" type="text" placeholder="메시지 입력..." onkeydown="if(event.key==='Enter') getFortune()">
+        <button onclick="getFortune()">요청하기</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
