@@ -40,7 +40,7 @@ async function getFortune() {
     chatBox.appendChild(replyDiv);
 
     try {
-        const response = await fetch('http://localhost:3000/fortuneTell', {
+        const response = await fetch('https://port-0-chatgpt-iciy2almvw8tfs.sel5.cloudtype.app/fortuneTell', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
